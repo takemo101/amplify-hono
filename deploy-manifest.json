@@ -39,8 +39,8 @@
   "computeResources": [
     {
       "name": "default",
-      "runtime": "nodejs18.x",
-      "entrypoint": "startServer.mjs"
+      "runtime": "nodejs22.x",
+      "entrypoint": "index.js"
     }
   ]
 }

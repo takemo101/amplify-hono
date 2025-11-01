@@ -1,0 +1,2 @@
+amplify-next
+~/.aws/credentials
