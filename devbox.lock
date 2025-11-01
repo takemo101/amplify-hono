@@ -1,0 +1,57 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2025-10-04T09:39:58Z",
+      "resolved": "github:NixOS/nixpkgs/0d4f673a88f8405ae14484e6a1ea870e0ba4ca26?lastModified=1759570798&narHash=sha256-kbkzsUKYzKhuvMOuxt%2FaTwWU2mnrwoY964yN3Y4dE98%3D"
+    },
+    "pnpm@latest": {
+      "last_modified": "2025-10-10T13:35:32Z",
+      "resolved": "github:NixOS/nixpkgs/870493f9a8cb0b074ae5b411b2f232015db19a65#pnpm",
+      "source": "devbox-search",
+      "version": "10.18.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1a1h3bn5wfyc8r8xllzfibri2wh7npnw-pnpm-10.18.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1a1h3bn5wfyc8r8xllzfibri2wh7npnw-pnpm-10.18.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6mg938xvsavdcf0792imsfnzx0i0wic1-pnpm-10.18.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6mg938xvsavdcf0792imsfnzx0i0wic1-pnpm-10.18.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/l46bk2n002bfd2giqiibizczihnxw771-pnpm-10.18.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/l46bk2n002bfd2giqiibizczihnxw771-pnpm-10.18.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/n5j11an7wlcr98k8mc9h1kz4bm3jqrag-pnpm-10.18.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/n5j11an7wlcr98k8mc9h1kz4bm3jqrag-pnpm-10.18.2"
+        }
+      }
+    }
+  }
+}

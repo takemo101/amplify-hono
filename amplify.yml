@@ -1,0 +1,38 @@
+version: 1
+backend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g pnpm
+    build:
+      commands:
+        - pnpm install --frozen-lockfile --store-dir .npm --prefer-offline
+        - pnpm ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g pnpm
+        - pnpm install
+    build:
+      commands:
+        - '# Honoアプリケーションをesbuildでバンドル（Amplify Hosting用）'
+        - pnpm run build
+    postBuild:
+      commands:
+        - rm -rf ./.amplify-hosting
+        - mkdir -p ./.amplify-hosting/compute
+        - cp -r ./dist ./.amplify-hosting/compute/default
+        - cp -r ./node_modules ./.amplify-hosting/compute/default/node_modules
+        - cp -r ./static ./.amplify-hosting/static
+        - cp -r ./static ./.amplify-hosting/compute/default
+        - cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
+        - 'echo "{ \"type\": \"module\" }" > ./.amplify-hosting/compute/default/package.json'
+  artifacts:
+    baseDirectory: .amplify-hosting
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .pnpm-store/**/*

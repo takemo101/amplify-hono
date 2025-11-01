@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "ESNext"],
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "~/*": ["./*"],
+      "@server/*": ["./src/*"],
+      "@amplify/*": ["./amplify/*"]
+    }
+  },
+  "include": ["src/**/*", "build.ts"],
+  "exclude": ["node_modules", "dist", ".amplify"]
+}
