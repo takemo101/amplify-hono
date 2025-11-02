@@ -20,6 +20,6 @@
       "@amplify/*": ["./amplify/*"]
     }
   },
-  "include": ["src/**/*", "build.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", ".amplify"]
 }
