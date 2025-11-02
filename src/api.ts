@@ -1,17 +1,46 @@
+import { zValidator } from "@hono/zod-validator";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { csrf } from "hono/csrf";
+import * as z from "zod";
+import { createMessage, getMessages, removeMessage } from "./repository";
+
+const messageSchema = z.object({
+  message: z.string().min(1),
+});
 
 const messages = new Hono();
 
-messages.get("/", (c) => {
-  return c.json({ message: "Hello, World!" });
+// メッセージの取得
+messages.get("/", async (c) => {
+  const messages = await getMessages();
+
+  return c.json({ items: messages });
 });
-messages.post("/", async (c) => {
-  return c.json({ message: "Hello, World!" });
+
+// メッセージの作成
+messages.post("/", zValidator("json", messageSchema), async (c) => {
+  const validated = c.req.valid("json");
+  const message = await createMessage(validated.message);
+
+  if (!message) {
+    return c.json({ error: "Failed to create message" }, 500);
+  }
+
+  return c.json({ ...message });
 });
-messages.delete("/:id", (c) => {
-  return c.json({ message: "Hello, World!" });
+
+// メッセージの削除
+messages.delete("/:id", async (c) => {
+  const id = Number(c.req.param("id"));
+
+  const message = await removeMessage(id);
+
+  if (!message) {
+    return c.json({ error: "Failed to remove message" }, 500);
+  }
+
+  return c.json({ ...message });
 });
 
 const api = new Hono();

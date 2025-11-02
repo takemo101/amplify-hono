@@ -24,7 +24,7 @@ frontend:
         - mkdir -p ./.amplify-hosting/compute
         - mkdir -p ./.amplify-hosting/static
         - cp -r ./dist ./.amplify-hosting/compute/default
-        - cp -r ./public ./.amplify-hosting/static
+        - cp -r ./public ./.amplify-hosting/static/public
         - cp deploy-manifest.json ./.amplify-hosting/deploy-manifest.json
         - 'echo "{ \"type\": \"module\" }" > ./.amplify-hosting/compute/default/package.json'
   artifacts:
